@@ -1,0 +1,50 @@
+name: BigCities
+main: net.mayateck.BigCities.BigCities
+version: 0.01.00Alpha
+description: 'BigCities - City-based Factions/Towny alternative.'
+website: 'https://github.com/Wehttam664/BigCities/wiki'
+author: Wehttam664
+softdepend: [TagAPI, Vault]
+loadbefore: [Factions, Towny]
+commands:
+   city:
+      description: 'BigCities core command.'
+      aliases: c
+      permission: bigcities.city
+      permission-message: 'You cannot access BigCities commands with your current permissions.'
+      usage: 'Unhandled Syntax Issue: Try /<command> help.'
+permissions:
+   bigcities.*:
+      description: 'Global permissions for BigCities'
+      children:
+         - bigcities.city
+         - bitcities.nation
+         - bigcities.admin
+   bigcities.city:
+      description: 'City commands for BigCities'
+      default: true
+      children:
+         - bigcities.city.create
+         - bigcities.city.claim
+         - bigcities.city.disband
+         - bigcities.city.invite
+         - bigcities.city.setrank
+         - bigcities.city.leave
+         - bigcities.city.ally
+         - bigcities.city.war
+         - bigcities.city.neutral
+         - bigcities.city.kick
+         - bigcities.city.rename
+         - bigcities.city.description
+         - bigcities.city.home
+         - bigcities.city.sethome
+   bigcities.admin:
+      description: 'Admin command for BigCities'
+      default: false
+      children:
+         - bigcities.admin.bypass
+         - bigcities.admin.delete
+         - bigcities.admin.tweak
+         - bigcities.admin.createprotected
+         - bigcities.admin.createbarrens
+   
