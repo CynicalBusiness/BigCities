@@ -12,39 +12,39 @@ commands:
       aliases: c
       permission: bigcities.city
       permission-message: 'You cannot access BigCities commands with your current permissions.'
-      usage: 'Unhandled Syntax Issue: Try /<command> help.'
+      usage: 'Un-handled Syntax Issue: Try /<command> help.'
 permissions:
    bigcities.*:
       description: 'Global permissions for BigCities'
       children:
-         - bigcities.city
-         - bitcities.nation
-         - bigcities.admin
+         bigcities.city: true
+         bitcities.nation: true
+         bigcities.admin: false
    bigcities.city:
       description: 'City commands for BigCities'
       default: true
       children:
-         - bigcities.city.create
-         - bigcities.city.claim
-         - bigcities.city.disband
-         - bigcities.city.invite
-         - bigcities.city.setrank
-         - bigcities.city.leave
-         - bigcities.city.ally
-         - bigcities.city.war
-         - bigcities.city.neutral
-         - bigcities.city.kick
-         - bigcities.city.rename
-         - bigcities.city.description
-         - bigcities.city.home
-         - bigcities.city.sethome
+         bigcities.city.create: true
+         bigcities.city.claim: true
+         bigcities.city.disband: true
+         bigcities.city.invite: true
+         bigcities.city.setrank: true
+         bigcities.city.leave: true
+         bigcities.city.ally: true
+         bigcities.city.war: true
+         bigcities.city.neutral: true
+         bigcities.city.kick: true
+         bigcities.city.rename: true
+         bigcities.city.description: true
+         bigcities.city.home: true
+         bigcities.city.sethome: true
    bigcities.admin:
       description: 'Admin command for BigCities'
       default: false
       children:
-         - bigcities.admin.bypass
-         - bigcities.admin.delete
-         - bigcities.admin.tweak
-         - bigcities.admin.createprotected
-         - bigcities.admin.createbarrens
+         bigcities.admin.bypass: false
+         bigcities.admin.delete: false
+         bigcities.admin.tweak: false
+         bigcities.admin.modifyprotected: false
+         bigcities.admin.modifyebarrens: false
    
