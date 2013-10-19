@@ -1,13 +1,52 @@
 city:
-   protected:
-      alias: 'Protected'
-      color: '3'
-      funds: 0
-      home:
-         x: 0
-         y: 0
-         z: 0
-         pitch: 0
-         yaw: 0
-      players:
-      
+  protected:
+    alias: 'Protected'
+    color: '3'
+    funds: 0
+    home:
+      x: 0
+      y: 0
+      z: 0
+      pitch: 0
+      yaw: 0
+    players:
+    ranks:
+      default:
+        name: 'Citizen'
+        tag: ''
+        mod: false
+        admin: false
+        pvp: false
+      admin:
+        name: 'Mayor'
+        tag: ''
+        mod: true
+        admin: true
+        pvp: false
+    claims:
+  independent:
+    alias: 'Survivor'
+    color: 'a'
+    funds: 0
+    home:
+      x: 0
+      y: 0
+      z: 0
+      pitch: 0
+      yaw: 0
+    players:
+    ranks:
+      default:
+        name: 'Survivalist'
+        tag: ''
+        mod: false
+        admin: false
+        pvp: false
+      admin:
+        name: 'Mayor'
+        tag: ''
+        mod: true
+        admin: true
+        pvp: true
+    claims:
+    

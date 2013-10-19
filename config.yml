@@ -1,2 +1,24 @@
-settings:
-   
+#=========# BigCities Configuration File #=========#
+#  For help with configuration, see the wiki at:   #
+# http://www.github.com/wehttam664/bigcitites/wiki #
+#==================================================#
+
+data:
+  cities:
+    defaultColor: 9
+  
+    nameLengthMin: 6
+    nameLengthMax: 16
+    
+  players:
+    strengthMin: -2.0
+    strengthMax: 8.0
+    strengthStart: 4.0
+    
+    strengthLossOnDeath: 1.0
+#    strengthDeathByPlayerPenalty: 1.0 // TODO
+    strengthPerMinute: 0.2
+  
+  chat:
+    format: '&f[&a{ranktag}] &r{displayname}&7:'
+  

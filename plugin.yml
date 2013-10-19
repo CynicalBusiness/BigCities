@@ -1,6 +1,6 @@
 name: BigCities
 main: net.mayateck.BigCities.BigCities
-version: 0.01.00Alpha
+version: 0.03.02Alpha
 description: 'BigCities - City-based Factions/Towny alternative.'
 website: 'https://github.com/Wehttam664/BigCities/wiki'
 author: Wehttam664
@@ -24,10 +24,11 @@ permissions:
       description: 'City commands for BigCities'
       default: true
       children:
-         bigcities.city.create: true
+         bigcities.city.found: true
          bigcities.city.claim: true
          bigcities.city.disband: true
          bigcities.city.invite: true
+         bigcities.city.createrank: true
          bigcities.city.setrank: true
          bigcities.city.leave: true
          bigcities.city.ally: true

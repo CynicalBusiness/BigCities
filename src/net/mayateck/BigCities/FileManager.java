@@ -13,7 +13,7 @@ public class FileManager {
 	
 	private FileConfiguration players = null; private File playersFile = null;
 	private FileConfiguration cities = null; private File citiesFile = null;
-	private FileConfiguration chunks = null; private File chunksFile = null;
+	private FileConfiguration nations = null; private File nationsFile = null;
 	
 	public FileManager(BigCities plugin){
 		this.plugin = plugin;
@@ -41,15 +41,15 @@ public class FileManager {
 	        cities.setDefaults(vendorConfig);
 	    }
 	}
-	public void reloadChunksList() {
-		if (chunksFile == null) {
-			chunksFile = new File(plugin.getDataFolder(), "chunks.yml");
+	public void reloadNationsList() {
+		if (nationsFile == null) {
+			nationsFile = new File(plugin.getDataFolder(), "nations.yml");
 		}
-		chunks = YamlConfiguration.loadConfiguration(chunksFile);
-	    InputStream vendorConfigStream = plugin.getResource("chunks.yml");
+		nations = YamlConfiguration.loadConfiguration(nationsFile);
+	    InputStream vendorConfigStream = plugin.getResource("nations.yml");
 	    if (vendorConfigStream != null) {
 	        YamlConfiguration vendorConfig = YamlConfiguration.loadConfiguration(vendorConfigStream);
-	        chunks.setDefaults(vendorConfig);
+	        nations.setDefaults(vendorConfig);
 	    }
 	}
 	// #===# //
@@ -65,11 +65,11 @@ public class FileManager {
 		}
 		return cities;
 	}
-	public FileConfiguration getChunksList() {
-		if (chunks == null) {
-	    	this.reloadChunksList();
+	public FileConfiguration getNationsList() {
+		if (nations == null) {
+	    	this.reloadNationsList();
 		}
-		return chunks;
+		return nations;
 	}
 	// #===# //
 	
@@ -93,12 +93,12 @@ public class FileManager {
 	        plugin.getLogger().log(Level.SEVERE, "Could not save config to " + citiesFile, ex);
 	    }
 	}
-	public void saveChunksList() {
-	    if (chunks == null || chunksFile == null) {
+	public void saveNationsList() {
+	    if (nations == null || nationsFile == null) {
 	    	return;
 	    }
 	    try {
-	        getPlayersList().save(chunksFile);
+	        getPlayersList().save(nationsFile);
 	    } catch (IOException ex) {
 	        plugin.getLogger().log(Level.SEVERE, "Could not save config to " + citiesFile, ex);
 	    }
@@ -120,12 +120,27 @@ public class FileManager {
 	         plugin.saveResource("cities.yml", false);
 	    }
 	}
-	public void saveDefaultChunksList() {
-	    if (chunksFile == null) {
-	    	chunksFile = new File(plugin.getDataFolder(), "chunks.yml");
+	public void saveDefaultNationsList() {
+	    if (nationsFile == null) {
+	    	nationsFile = new File(plugin.getDataFolder(), "nations.yml");
 	    }
-	    if (!chunksFile.exists()) {
-	         plugin.saveResource("chunks.yml", false);
+	    if (!nationsFile.exists()) {
+	         plugin.saveResource("nations.yml", false);
 	    }
+	}
+	public void reloadAllData(){
+		reloadPlayersList();
+		reloadCitiesList();
+		reloadNationsList();
+	}
+	public void saveAllDefaultData(){
+		saveDefaultPlayersList();
+		saveDefaultCitiesList();
+		saveDefaultNationsList();
+	}
+	public void saveAllData(){
+		savePlayersList();
+		saveCitiesList();
+		saveNationsList();
 	}
 }
