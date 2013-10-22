@@ -39,7 +39,7 @@ public class EventHandler implements Listener{
 	public void onPlayerJoin(PlayerJoinEvent e){
 		Player p = e.getPlayer();
 		if (!plugin.files.getPlayersList().contains("players."+p.getName())){
-			plugin.files.getPlayersList().set("players."+p.getName()+".city", "Survivors");
+			plugin.files.getPlayersList().set("players."+p.getName()+".city", "default");
 			plugin.files.getPlayersList().set("players."+p.getName()+".strength", plugin.getConfig().getDouble("data.players.strengthStart"));
 			plugin.files.savePlayersList();
 		}
