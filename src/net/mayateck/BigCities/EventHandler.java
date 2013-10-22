@@ -16,11 +16,6 @@ public class EventHandler implements Listener{
 		this.plugin = plugin;
 	}
 	
-	public void onPlayerChangeChunk(Player p){
-		
-		// TODO Echo chunk info to player.
-	}
-	
 	public void onPlayerMove(PlayerMoveEvent e){
 		Player p = e.getPlayer();
 		String pname = p.getName();
@@ -31,7 +26,7 @@ public class EventHandler implements Listener{
 		} else {
 			double[] pos = BigCities.playerChunks.get(pname);
 			if ((!(pos[0]==Math.floor(p.getLocation().getX()/16))) || (!(pos[1]==Math.floor(p.getLocation().getZ()/16)))){
-				onPlayerChangeChunk(p);
+				plugin.cityHandler.playerChunkChange(p);
 			}
 		}
 	}
