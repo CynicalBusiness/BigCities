@@ -3,6 +3,7 @@ city:
     alias: 'Protected'
     color: '3'
     funds: 0
+    desc: 'Protected area.'
     home:
       x: 0
       y: 0
@@ -24,10 +25,11 @@ city:
         admin: true
         pvp: false
     claims:
-  independent:
-    alias: 'Survivor'
+  default:
+    alias: 'Unclaimed'
     color: 'a'
     funds: 0
+    desc: ''
     home:
       x: 0
       y: 0

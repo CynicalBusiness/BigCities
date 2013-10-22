@@ -17,7 +17,7 @@ public class EventHandler implements Listener{
 	}
 	
 	public void onPlayerChangeChunk(Player p){
-		BigCities.playerChunks.put(p.getName(), new double[]{Math.floor(p.getLocation().getX()/16), Math.floor(p.getLocation().getZ()/16)});
+		
 		// TODO Echo chunk info to player.
 	}
 	

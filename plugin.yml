@@ -1,6 +1,6 @@
 name: BigCities
 main: net.mayateck.BigCities.BigCities
-version: 0.03.02Alpha
+version: 0.04.10Alpha
 description: 'BigCities - City-based Factions/Towny alternative.'
 website: 'https://github.com/Wehttam664/BigCities/wiki'
 author: Wehttam664

@@ -7,6 +7,11 @@ BigCities Minecraft Bukkit Plug-in
 
 Changelog
 ---------
+*v0.04.22 Alpha*
+- NEW: Players get a message when the ownership of the current chunk changes.
+- NEW: Cities now support descriptions
+- FIX: Bad handling for colors in cities list fixed.
+
 **v0.04.00 Alpha**
 - NEW: City creation added.
 - NEW: '/city help' command added.

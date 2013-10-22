@@ -43,6 +43,7 @@ public class CityHandler {
 			plugin.files.getCitiesList().set(ct+"alias", name);
 			plugin.files.getCitiesList().set(ct+"color", plugin.getConfig().getString("data.cities.defaultColor"));
 			plugin.files.getCitiesList().set(ct+"funds", 0);
+			plugin.files.getCitiesList().set(ct+"desc", "Description not set. D:");
 				plugin.files.getCitiesList().set(ct+"home.x", 0);
 				plugin.files.getCitiesList().set(ct+"home.y", 0);
 				plugin.files.getCitiesList().set(ct+"home.z", 0);
@@ -55,6 +56,32 @@ public class CityHandler {
 			createRank(cname, "admin", "Mayor", "", false, false, false, true);
 		} else {
 			p.sendMessage(plugin.parseColor(BigCities.tag+"&fYou cannot overclaim &9"+cityOnChunk+"&f!"));
+		}
+	}
+	
+	public void playerChunkChange(Player p){
+		double cx = Math.floor(p.getLocation().getX()/16);
+		double cz = Math.floor(p.getLocation().getZ()/16);
+		String w = p.getWorld().getName();
+		double[] pos = BigCities.playerChunks.get(p.getName());
+		if ((!(pos[0]==Math.floor(cx))) || (!(pos[1]==Math.floor(cz)))){
+			BigCities.playerChunks.put(p.getName(), new double[]{cx, cz});
+		}
+		Set<String> cities = plugin.files.getCitiesList().getConfigurationSection("cities").getKeys(false);
+		String cname = "";
+		for (String city : cities){
+			List<String> claims = plugin.files.getCitiesList().getStringList("cities."+city+".claims");
+			for (String claim : claims){
+				if (claim.equals("["+cx+","+cz+","+w+"]")){
+					cname = city;
+				}
+			}
+		}
+		if (!cname.equals("")){
+			String alias = plugin.files.getCitiesList().getString("cities."+cname+".alias");
+			String desc = plugin.files.getCitiesList().getString("cities."+cname+".desc");
+			String color = plugin.files.getCitiesList().getString("cities."+cname+".color");
+			p.sendMessage(plugin.parseColor(BigCities.tag+"&"+color+alias+" | &f"+desc));
 		}
 	}
 }
